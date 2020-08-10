@@ -1,15 +1,22 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 29
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         consumerProguardFiles 'proguard.pgcfg'
     }
+
+    configurations {
+        all { // You should exclude one of them not both of them
+            exclude group: "androidx"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false

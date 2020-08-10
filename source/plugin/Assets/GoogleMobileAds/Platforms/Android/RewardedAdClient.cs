@@ -104,7 +104,6 @@ namespace GoogleMobileAds.Android
         // Returns ad request response info
         public IResponseInfoClient GetResponseInfoClient()
         {
-
             return new ResponseInfoClient(this.androidRewardedAd);
         }
 

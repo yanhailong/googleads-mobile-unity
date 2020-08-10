@@ -26,18 +26,14 @@ namespace GoogleMobileAds
     {
         public IBannerClient BuildBannerClient()
         {
-            if (Application.platform == RuntimePlatform.Android)
-            {
-                return new GoogleMobileAds.Android.BannerClient();
-            }
-            else if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.WindowsEditor)
-            {
-              return new GoogleMobileAds.Unity.BannerClient();
-            } 
-            else 
-            {
-              return new GoogleMobileAds.Common.DummyClient();
-            }
+          if (Application.platform == RuntimePlatform.Android)
+          {
+              return new GoogleMobileAds.Android.BannerClient();
+          }
+          else
+          {
+            return new GoogleMobileAds.Common.DummyClient();
+          }
         }
 
         public IInterstitialClient BuildInterstitialClient()
@@ -82,6 +78,7 @@ namespace GoogleMobileAds
           {
               return new GoogleMobileAds.Android.AdLoaderClient(args);
           }
+          else
           {
             return new GoogleMobileAds.Common.DummyClient();
           }
